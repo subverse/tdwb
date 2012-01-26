@@ -21,9 +21,9 @@ describe Source do
     source_without_name.should_not be_valid
   end
   
-  it "should reject duplicate names" do
+  it "should reject duplicate names case sensitive" do
     Source.create!(@attr)
-    source_with_duplicate_name = Source.new(@attr)
+    source_with_duplicate_name = Source.new(@attr.merge(:name => "example source"))
     source_with_duplicate_name.should_not be_valid
   end
   
@@ -34,12 +34,18 @@ describe Source do
     source_without_code.should_not be_valid
   end
   
-  it "should reject duplicate codes" do
+  it "should reject duplicate codes case sensitive" do
     Source.create!(@attr)
-    source_with_duplicate_code = Source.new(@attr)
+    source_with_duplicate_code = Source.new(@attr.merge(:code => "eSrc"))
     source_with_duplicate_code.should_not be_valid
   end
   
   it "should reject codes shorter than 2 and longer than 5 characters"
+  
+  it "should reject duplicate web" do
+      Source.create!(@attr)
+      source_with_duplicate_web = Source.new(@attr.merge(:name => "WWW.eSrC.com"))
+      source_with_duplicate_web.should_not be_valid
+  end
   
 end #describe Source

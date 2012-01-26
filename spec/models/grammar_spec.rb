@@ -16,9 +16,9 @@ describe Grammar do
     grammar_without_name.should_not be_valid
   end
   
-  it "should reject duplicate names" do
+  it "should reject duplicate names case insensitive" do
     Grammar.create!(@attr)
-    grammar_with_duplicate_name = Grammar.new(@attr)
+    grammar_with_duplicate_name = Grammar.new(@attr.merge(:name => "example grammar"))
     grammar_with_duplicate_name.should_not be_valid
   end
   
