@@ -1,0 +1,16 @@
+## database and mongrel cluster
+/config/database.yml
+
+## logfiles and tempfiles.
+/log/*.log
+tmp/**/*
+
+## editor related files
+*~
+*#
+*flymake
+.tmproj
+
+## OS generated files
+.DS_Store*
+thumbs.db
