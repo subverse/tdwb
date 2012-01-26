@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126120156) do
+ActiveRecord::Schema.define(:version => 20120126135603) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(:version => 20120126120156) do
   end
 
   add_index "grammars", ["name"], :name => "index_grammars_on_name", :unique => true
+
+  create_table "linkcategories", :force => true do |t|
+    t.string   "name",       :null => false
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "linkcategories", ["name"], :name => "index_linkcategories_on_name", :unique => true
 
   create_table "sources", :force => true do |t|
     t.string   "name",                    :null => false
