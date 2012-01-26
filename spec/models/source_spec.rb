@@ -1,0 +1,45 @@
+require 'spec_helper'
+
+describe Source do
+  #pending "add some examples to (or delete) #{__FILE__}"
+  
+  before(:each) do
+      @attr = { :name =>  "Example Source", 
+                :code =>  "esrc",
+                :web =>   "www.esrc.com",
+                :info => "Info about Example Source" }
+  end
+  
+  it "should create a new instance given valid attributes" do
+      Source.create!(@attr)
+  end
+  
+  #test name: present, unique
+    
+  it "should require a name" do
+    source_without_name = Source.new(@attr.merge(:name => ""))
+    source_without_name.should_not be_valid
+  end
+  
+  it "should reject duplicate names" do
+    Source.create!(@attr)
+    source_with_duplicate_name = Source.new(@attr)
+    source_with_duplicate_name.should_not be_valid
+  end
+  
+  #test code: present, unique, length limited
+  
+  it "should require a code" do
+    source_without_code = Source.new(@attr.merge(:code => ""))
+    source_without_code.should_not be_valid
+  end
+  
+  it "should reject duplicate codes" do
+    Source.create!(@attr)
+    source_with_duplicate_code = Source.new(@attr)
+    source_with_duplicate_code.should_not be_valid
+  end
+  
+  it "should reject codes shorter than 2 and longer than 5 characters"
+  
+end #describe Source

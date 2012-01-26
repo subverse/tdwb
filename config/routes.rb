@@ -1,4 +1,6 @@
 Tdwb::Application.routes.draw do
+  resources :sources
+
   resources :grammars
 
   resources :categories
