@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126135603) do
+ActiveRecord::Schema.define(:version => 20120126141331) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(:version => 20120126135603) do
   end
 
   add_index "linkcategories", ["name"], :name => "index_linkcategories_on_name", :unique => true
+
+  create_table "links", :force => true do |t|
+    t.string   "title",           :null => false
+    t.string   "web",             :null => false
+    t.integer  "linkcategory_id", :null => false
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links", ["title"], :name => "index_links_on_title", :unique => true
+  add_index "links", ["web"], :name => "index_links_on_web", :unique => true
 
   create_table "sources", :force => true do |t|
     t.string   "name",                    :null => false

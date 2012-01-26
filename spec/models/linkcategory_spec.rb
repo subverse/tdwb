@@ -21,4 +21,6 @@ describe Linkcategory do
     linkcategory_with_duplicate_name = Linkcategory.new(@attr.merge(:name => "example linkCategory"))
     linkcategory_with_duplicate_name.should_not be_valid
   end
+  
+  it "should have many links"
 end
