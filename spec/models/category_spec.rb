@@ -15,4 +15,11 @@ describe Category do
     category_without_name = Category.new(@attr.merge(:name => ""))
     category_without_name.should_not be_valid
   end
+  
+  it "should reject duplicate names" do
+    Category.create!(@attr)
+    category_with_duplicate_name = Category.new(@attr)
+    category_with_duplicate_name.should_not be_valid
+  end
+  
 end
