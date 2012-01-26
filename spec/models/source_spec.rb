@@ -40,7 +40,12 @@ describe Source do
     source_with_duplicate_code.should_not be_valid
   end
   
-  it "should reject codes shorter than 2 and longer than 5 characters"
+  it "should reject codes shorter than 2 and longer than 5 characters" do
+    source_with_duplicate_code = Source.new(@attr.merge(:code => "e"))
+    source_with_duplicate_code.should_not be_valid    
+    source_with_duplicate_code = Source.new(@attr.merge(:code => "eSrc56"))
+    source_with_duplicate_code.should_not be_valid
+  end
   
   it "should reject duplicate web" do
       Source.create!(@attr)
