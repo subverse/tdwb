@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe Linkcategory do
-  #pending "add some examples to (or delete) #{__FILE__}"
-  
+    
   before(:each) do
-      @attr = { :name => "Example Linkcategory", :info => "Info about Example Linkcategory" }
+    @attr = { :name => "Example Linkcategory", :info => "Info about Example Linkcategory" }
   end
   
   it "should create a new instance given valid attributes" do
-      Linkcategory.create!(@attr)
+    Linkcategory.create!(@attr)
   end
     
   it "should require a name" do
@@ -22,5 +21,24 @@ describe Linkcategory do
     linkcategory_with_duplicate_name.should_not be_valid
   end
   
-  it "should have many links"
-end
+  #assosiation: has_many :links
+  
+  describe "association with links" do
+
+    before(:each) do            
+      @linkcategory = Linkcategory.create!(@attr)
+      @link1 = Factory(:link, :linkcategory => @linkcategory)
+      @link2 = Factory(:link, :linkcategory => @linkcategory)      
+    end
+
+    it "should have a links attribute" do
+      @linkcategory.should respond_to(:links)
+    end
+
+    it "should have many links" do
+      @linkcategory.links.include?(@link1).should be_true
+      @linkcategory.links.include?(@link2).should be_true
+    end
+    
+  end# describe association with links
+end# Linkcategory 

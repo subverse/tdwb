@@ -1,10 +1,9 @@
 require 'spec_helper'
 
 describe Link do
-  #pending "add some examples to (or delete) #{__FILE__}"
-  
+    
   before(:each) do
-      @linkcategory = Factory(:Linkcategory)
+      @linkcategory = Factory(:linkcategory)
       @attr = { :title => "Example Link", 
                 :web =>   "www.elink.de",
                 :info =>  "Info about Example Link" }
@@ -55,17 +54,19 @@ describe Link do
 
     before(:each) do      
       @link = @linkcategory.links.create!(@attr)
+      @link1 = Factory(:link, :linkcategory => @linkcategory)
+      @link2 = Factory(:link, :linkcategory => @linkcategory)      
     end
 
     it "should have a linkcategory attribute" do
       @link.should respond_to(:linkcategory)
     end
 
-    it "should have the right associated linkcategory" do
+    it "should be associated with the right linkcategory" do
       @link.linkcategory_id.should == @linkcategory.id
       @link.linkcategory.should == @linkcategory
-    end
+    end    
     
-  end #describe linkcategory associations
+  end# describe association with linkcategory
   
-end #describe Link
+end# describe Link

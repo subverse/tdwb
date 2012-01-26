@@ -1,7 +1,7 @@
 class Link < ActiveRecord::Base
   belongs_to :linkcategory
   
-  attr_accessible :title, :web, :linkcategory_id, :info
+  attr_accessible :title, :web, :info, :linkcategory_id
       
   validates :title, :presence => true,
                     :uniqueness => { :case_sensitive => false }
