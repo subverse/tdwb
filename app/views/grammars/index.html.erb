@@ -1,0 +1,25 @@
+<h1>Listing grammars</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Info</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @grammars.each do |grammar| %>
+  <tr>
+    <td><%= grammar.name %></td>
+    <td><%= grammar.info %></td>
+    <td><%= link_to 'Show', grammar %></td>
+    <td><%= link_to 'Edit', edit_grammar_path(grammar) %></td>
+    <td><%= link_to 'Destroy', grammar, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Grammar', new_grammar_path %>

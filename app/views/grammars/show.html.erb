@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @grammar.name %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @grammar.info %>
+</p>
+
+
+<%= link_to 'Edit', edit_grammar_path(@grammar) %> |
+<%= link_to 'Back', grammars_path %>

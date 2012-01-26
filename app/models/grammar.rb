@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Grammar < ActiveRecord::Base
   
   attr_accessible :name, :info
   

@@ -4,7 +4,7 @@ describe Category do
   #pending "add some examples to (or delete) #{__FILE__}"
   
   before(:each) do
-      @attr = { :name => "Example Category" }
+      @attr = { :name => "Example Category", :info => "Info about Example Category" }
   end
   
   it "should create a new instance given valid attributes" do
