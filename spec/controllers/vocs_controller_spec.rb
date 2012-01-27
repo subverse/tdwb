@@ -24,7 +24,12 @@ describe VocsController do
   # Voc. As you add validations to Voc, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :german => "german", 
+      :wylie => "wy li e",
+      :source_id => 1,
+      :grammar_id => 1,
+      :category_id => 1,                                
+      :info => "Some Info" }
   end
   
   # This should return the minimal set of values that should be in the session

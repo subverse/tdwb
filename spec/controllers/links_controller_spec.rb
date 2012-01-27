@@ -24,7 +24,10 @@ describe LinksController do
   # Link. As you add validations to Link, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :title => "Example Link", 
+      :web =>   "www.elink.de",
+      :info =>  "Info about Example Link",
+      :linkcategory_id => 1 }
   end
   
   # This should return the minimal set of values that should be in the session

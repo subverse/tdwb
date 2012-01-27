@@ -24,7 +24,8 @@ describe CategoriesController do
   # Category. As you add validations to Category, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :name => "name",
+      :info => "some info" }
   end
   
   # This should return the minimal set of values that should be in the session

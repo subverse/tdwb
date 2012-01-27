@@ -24,7 +24,10 @@ describe SourcesController do
   # Source. As you add validations to Source, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :name =>  "Example Source", 
+      :code =>  "esrc",
+      :web =>   "www.esrc.com",
+      :info => "Info about Example Source" }
   end
   
   # This should return the minimal set of values that should be in the session

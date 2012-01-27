@@ -26,7 +26,7 @@ end
 Factory.define :source do |source|
   source.name "name 1"
   source.code "cd1"
-  source.web  "www.web1.de"
+  source.web  "www.web-1.de"
   source.info "some info"
 end
 
