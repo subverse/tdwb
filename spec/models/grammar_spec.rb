@@ -21,5 +21,5 @@ describe Grammar do
     grammar_with_duplicate_name = Grammar.new(@attr.merge(:name => "example grammar"))
     grammar_with_duplicate_name.should_not be_valid
   end
-  
+    
 end

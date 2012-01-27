@@ -1,0 +1,33 @@
+<h1>Listing vocs</h1>
+
+<table>
+  <tr>
+    <th>German</th>
+    <th>Wylie</th>
+    <th>Source</th>
+    <th>Grammar</th>
+    <th>Category</th>
+    <th>Info</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vocs.each do |voc| %>
+  <tr>
+    <td><%= voc.german %></td>
+    <td><%= voc.wylie %></td>
+    <td><%= voc.source_id %></td>
+    <td><%= voc.grammar_id %></td>
+    <td><%= voc.category_id %></td>
+    <td><%= voc.info %></td>
+    <td><%= link_to 'Show', voc %></td>
+    <td><%= link_to 'Edit', edit_voc_path(voc) %></td>
+    <td><%= link_to 'Destroy', voc, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Voc', new_voc_path %>

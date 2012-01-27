@@ -52,5 +52,5 @@ describe Source do
       source_with_duplicate_web = Source.new(@attr.merge(:name => "WWW.eSrC.com"))
       source_with_duplicate_web.should_not be_valid
   end
-  
+      
 end #describe Source

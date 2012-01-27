@@ -1,4 +1,6 @@
 class Source < ActiveRecord::Base
+  has_many :vocs
+  
   attr_accessible :name, :code, :web, :info
 
   validates :name,  :presence => true,

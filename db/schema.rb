@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126141331) do
+ActiveRecord::Schema.define(:version => 20120126183654) do
 
   create_table "categories", :force => true do |t|
     t.string   "name",       :null => false
@@ -64,5 +64,20 @@ ActiveRecord::Schema.define(:version => 20120126141331) do
   add_index "sources", ["code"], :name => "index_sources_on_code", :unique => true
   add_index "sources", ["name"], :name => "index_sources_on_name", :unique => true
   add_index "sources", ["web"], :name => "index_sources_on_web", :unique => true
+
+  create_table "vocs", :force => true do |t|
+    t.string   "german",      :null => false
+    t.string   "wylie",       :null => false
+    t.integer  "source_id",   :null => false
+    t.integer  "grammar_id",  :null => false
+    t.integer  "category_id", :null => false
+    t.text     "info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vocs", ["german", "wylie"], :name => "index_vocs_on_german_and_wylie", :unique => true
+  add_index "vocs", ["german"], :name => "index_vocs_on_german", :unique => true
+  add_index "vocs", ["wylie"], :name => "index_vocs_on_wylie", :unique => true
 
 end

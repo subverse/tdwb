@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>German:</b>
+  <%= @voc.german %>
+</p>
+
+<p>
+  <b>Wylie:</b>
+  <%= @voc.wylie %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @voc.source_id %>
+</p>
+
+<p>
+  <b>Grammar:</b>
+  <%= @voc.grammar_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @voc.category_id %>
+</p>
+
+<p>
+  <b>Info:</b>
+  <%= @voc.info %>
+</p>
+
+
+<%= link_to 'Edit', edit_voc_path(@voc) %> |
+<%= link_to 'Back', vocs_path %>

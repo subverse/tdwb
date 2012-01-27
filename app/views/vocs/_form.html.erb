@@ -1,0 +1,41 @@
+<%= form_for(@voc) do |f| %>
+  <% if @voc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voc.errors.count, "error") %> prohibited this voc from being saved:</h2>
+
+      <ul>
+      <% @voc.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :german %><br />
+    <%= f.text_field :german %>
+  </div>
+  <div class="field">
+    <%= f.label :wylie %><br />
+    <%= f.text_field :wylie %>
+  </div>
+  <div class="field">
+    <%= f.label :source_id %><br />
+    <%= f.number_field :source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :grammar_id %><br />
+    <%= f.number_field :grammar_id %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :info %><br />
+    <%= f.text_area :info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

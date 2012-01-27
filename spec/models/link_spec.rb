@@ -8,10 +8,12 @@ describe Link do
                 :web =>   "www.elink.de",
                 :info =>  "Info about Example Link" }
   end
+
   
   it "should create a new instance given valid attributes through relation with linkcategory" do
       @linkcategory.links.create!(@attr)
   end
+
     
   #title  
     
@@ -25,6 +27,7 @@ describe Link do
     link_with_duplicate_title = Link.new(@attr.merge(:title => "example link"))
     link_with_duplicate_title.should_not be_valid
   end
+
   
   #web
     
@@ -38,6 +41,7 @@ describe Link do
     link_with_duplicate_web = Link.new(@attr.merge(:web => "wWw.eLink.de"))
     link_with_duplicate_web.should_not be_valid
   end
+
   
   #linkcategory_id
     
@@ -45,8 +49,7 @@ describe Link do
     link_without_web = Link.new(@attr.merge(:linkcategory_id => ""))
     link_without_web.should_not be_valid
   end
-  
-  it "should require a linkcategory_id greater or equal 1"  
+
   
   #assosiation: belongs_to :linkcategory
   
@@ -54,8 +57,6 @@ describe Link do
 
     before(:each) do      
       @link = @linkcategory.links.create!(@attr)
-      @link1 = Factory(:link, :linkcategory => @linkcategory)
-      @link2 = Factory(:link, :linkcategory => @linkcategory)      
     end
 
     it "should have a linkcategory attribute" do
