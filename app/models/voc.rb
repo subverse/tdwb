@@ -8,8 +8,8 @@ class Voc < ActiveRecord::Base
   validates :german, :presence => true                      
   validates :wylie,  :presence => true
 
-  validate :german_wylie_pair_must_be_unique
-
+  validate :german_wylie_pair_must_be_unique => { :on => :create }
+  
   private
 
   def german_wylie_pair_must_be_unique    

@@ -8,12 +8,12 @@ describe Link do
                 :web =>   "www.elink.de",
                 :info =>  "Info about Example Link" }
   end
-
+  
+  #create
   
   it "should create a new instance given valid attributes through relation with linkcategory" do
       @linkcategory.links.create!(@attr)
   end
-
     
   #title  
     
@@ -46,8 +46,8 @@ describe Link do
   #linkcategory_id
     
   it "should require a linkcategory_id" do
-    link_without_web = Link.new(@attr.merge(:linkcategory_id => ""))
-    link_without_web.should_not be_valid
+    link_without_linkcategory_id = Link.new(@attr.merge(:linkcategory_id => ""))
+    link_without_linkcategory_id.should_not be_valid
   end
 
   
