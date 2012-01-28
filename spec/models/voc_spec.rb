@@ -35,8 +35,21 @@ describe Voc do
 
   #test pair of german and wylie: unique
  
-  it "should reject duplicate pair of german and wylie" 
-  
+  it "should reject duplicate pair of german and wylie" do    
+    voc = Voc.create!(@attr)
+    
+    voc_with_duplicate_pair = Voc.new(@attr.merge(:german => "german", :wylie => "wy li e"))
+    voc_with_duplicate_pair.should_not be_valid
+    
+    voc_with_single_german = Voc.new(@attr.merge(:german => "ger man", :wylie => "wy li e"))
+    voc_with_single_german.should be_valid
+   
+    voc_with_single_wylie = Voc.new(@attr.merge(:german => "german", :wylie => "wy lie"))
+    voc_with_single_wylie.should be_valid
+    
+    voc_with_single_wylie = Voc.new(@attr.merge(:german => "german", :wylie => "Wy li E"))
+    voc_with_single_wylie.should be_valid
+  end  
 
   #associations: belongs_to: category, grammar, source; has_many :vocs
   

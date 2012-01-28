@@ -76,8 +76,4 @@ ActiveRecord::Schema.define(:version => 20120126183654) do
     t.datetime "updated_at"
   end
 
-  add_index "vocs", ["german", "wylie"], :name => "index_vocs_on_german_and_wylie", :unique => true
-  add_index "vocs", ["german"], :name => "index_vocs_on_german", :unique => true
-  add_index "vocs", ["wylie"], :name => "index_vocs_on_wylie", :unique => true
-
 end

@@ -10,8 +10,6 @@ class CreateVocs < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    add_index :vocs, [:german, :wylie], :unique => true
     
   end
 end
